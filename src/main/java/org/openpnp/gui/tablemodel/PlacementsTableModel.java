@@ -164,6 +164,7 @@ public class PlacementsTableModel extends AbstractTableModel {
         }
         if (placement.getType() == Placement.Type.Place) {
             boolean found = false;
+            // TODO STOPSHIP performance killer
             for (Feeder feeder : Configuration.get().getMachine().getFeeders()) {
                 if (feeder.getPart() == placement.getPart() && feeder.isEnabled()) {
                     found = true;
@@ -200,6 +201,7 @@ public class PlacementsTableModel extends AbstractTableModel {
             case 6:
                 return placement.getType();
             case 7:
+                // TODO STOPSHIP this is a performance killer
             	jobPlacementsPanel.updateActivePlacements();
             	return boardLocation.getPlaced(placement.getId());
             case 8:

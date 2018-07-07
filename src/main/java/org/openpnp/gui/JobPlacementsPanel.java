@@ -655,33 +655,28 @@ public class JobPlacementsPanel extends JPanel {
 
         public void setValue(Object value) {
             String id = value.toString();
-
+            
             PnpJobProcessor pnpJobProcessor = Configuration.get().getMachine().getPnpJobProcessor();
-            int totalSize = pnpJobProcessor.getJobPlacementsById(id).size();
-            int completeSize =
-                    pnpJobProcessor.getJobPlacementsById(id, JobPlacement.Status.Complete).size();
-            int processingSize =
-                    pnpJobProcessor.getJobPlacementsById(id, JobPlacement.Status.Processing).size();
 
-            //
-            if (totalSize != 0) {
-                if (completeSize == totalSize) {
-                    setBackground(jobColorComplete);
-                }
-                else if (processingSize > 0) {
-                    setBackground(jobColorProcessing);
-                }
-                else {
-                    setBackground(jobColorPending);
-                }
-
-                if (totalSize > 1) {
-                    id += "  (" + completeSize + " / " + totalSize + ")";
-                }
-            }
-            else {
-                setBackground(Color.WHITE);
-            }
+//            //
+//            if (totalSize != 0) {
+//                if (completeSize == totalSize) {
+//                    setBackground(jobColorComplete);
+//                }
+//                else if (processingSize > 0) {
+//                    setBackground(jobColorProcessing);
+//                }
+//                else {
+//                    setBackground(jobColorPending);
+//                }
+//
+//                if (totalSize > 1) {
+//                    id += "  (" + completeSize + " / " + totalSize + ")";
+//                }
+//            }
+//            else {
+//                setBackground(Color.WHITE);
+//            }
 
             setForeground(Color.black);
             setText(id);
